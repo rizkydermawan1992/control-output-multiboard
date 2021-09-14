@@ -41,6 +41,7 @@ void setup () {
 void loop() {
 
     HTTPClient http;
+    //Sesuaikan dengan IP Address dan direktori lokal masing-masing
     http.begin("http://192.168.1.9/rizkyprojects/esp_iot/proses.php?board="+String(board)); 
     int httpCode = http.GET();
 
