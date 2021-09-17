@@ -36,7 +36,7 @@ require 'koneksidb.php';
   <body class="bg-light">
           <br><br><br>
           <center>
-              <img class="img-fluid responsive-sm mt-3" src="img/png2.png" alt="Responsive image" style="width:480px; height:50px;">
+              
           </center>
 
 

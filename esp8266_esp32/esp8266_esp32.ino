@@ -1,16 +1,21 @@
-//Program khusus esp32
+#ifdef ESP32
+  #include <WiFi.h>
+  #include <HTTPClient.h>
+#else
+  #include <ESP8266WiFi.h>
+  #include <ESP8266HTTPClient.h>
+#endif
 
-#include <WiFi.h>
-#include <HTTPClient.h>
+
 #include <Arduino_JSON.h>
 
-const  char* ssid = "rdhdev"; //masukkan ssid
-const char* password = "lupasandi"; //masukkan password
+const char* ssid = "Room105"; //masukkan ssid
+const char* password = "indonesiaraya"; //masukkan password
 
 const long interval = 10; //5000
 unsigned long previousMillis = 0;
 
-int board = 2;
+int board = 1;
 
 void setup () {
 
@@ -36,7 +41,8 @@ void setup () {
 void loop() {
 
     HTTPClient http;
-    http.begin("http://192.168.1.9/rizkyprojects/esp_iot/proses.php?board="+String(board)); 
+    //Sesuaikan dengan IP Address dan direktori lokal masing-masing
+    http.begin("http://192.168.1.5/rizkyprojects/esp_iot/proses.php?board="+String(board)); 
     int httpCode = http.GET();
 
     unsigned long currentMillis = millis();
@@ -68,4 +74,3 @@ void loop() {
   }
   
 }
-
